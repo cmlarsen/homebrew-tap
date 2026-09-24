@@ -1,22 +1,30 @@
 class Dustpan < Formula
   desc "Find and clean the dev leftovers eating your Mac's disk and memory: stale worktrees, orphaned DerivedData, simulators, caches"
   homepage "https://github.com/cmlarsen/dustpan"
-  version "0.1.0"
+  version "0.1.1"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/cmlarsen/dustpan/releases/download/v0.1.0/dustpan-aarch64-apple-darwin.tar.xz"
-      sha256 "1cc25fa151de182c56d1194469dbd677c90555c8156e2799f79f38129b771d1f"
+      url "https://github.com/cmlarsen/dustpan/releases/download/v0.1.1/dustpan-aarch64-apple-darwin.tar.xz"
+      sha256 "1fee23a662af9bb7280c32cf54a4f7c855ae89042acd84462a55c94fee1aaf4d"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/cmlarsen/dustpan/releases/download/v0.1.0/dustpan-x86_64-apple-darwin.tar.xz"
-      sha256 "cef38082882d207ec34e0aa52064aa16376f42ac880410e67a9032cd45539425"
+      url "https://github.com/cmlarsen/dustpan/releases/download/v0.1.1/dustpan-x86_64-apple-darwin.tar.xz"
+      sha256 "0818d4a82636a727dff9fd174fce613776b0a0f24a9ead2189520a4a9cccabe9"
     end
   end
   license any_of: ["MIT", "Apache-2.0"]
 
   BINARY_ALIASES = {
-    "aarch64-apple-darwin": {},
-    "x86_64-apple-darwin":  {},
+    "aarch64-apple-darwin": {
+      dp: [
+        "dustpan",
+      ],
+    },
+    "x86_64-apple-darwin":  {
+      dp: [
+        "dustpan",
+      ],
+    },
   }.freeze
 
   def target_triple
